@@ -14,6 +14,7 @@
         <label>intense bigotry</label>
         <description>Our genetic stock is the purest. Those of other kinds are inferior and cannot live alongside us.</description>
         <impact>Medium</impact>
+        <displayOrderInIssue>60</displayOrderInIssue>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Abhorrent</thought>
@@ -27,8 +28,105 @@
             </li>
         </comps>
     </PreceptDef>
+    
+    <PreceptDef>
+        <defName>XenoDiversity_Horrible</defName>
+        <issue>XenoDiversity</issue>
+        <label>moderate bigotry</label>
+        <description>Other xenotypes are strange and should be shunned. They don't belong in the community.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>50</displayOrderInIssue>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Horrible</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Horrible_Social</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Horrible_Uniform</thought>
+                <description>All colonists are of the same xenotype</description>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <PreceptDef>
+        <defName>XenoDiversity_Disapproved</defName>
+        <issue>XenoDiversity</issue>
+        <label>mild bigotry</label>
+        <description>Other xenotypes are uncanny and troublesome. A homogeneous community is best.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>40</displayOrderInIssue>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Disapproved</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Disapproved_Social</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Disapproved_Uniform</thought>
+                <description>All colonists are of the same xenotype</description>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <PreceptDef>
+        <defName>XenoDiversity_Standard</defName>
+        <issue>XenoDiversity</issue>
+        <label>intense bigotry</label>
+        <description>Xenodiversity doesn't particularly matter one way or the other.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>30</displayOrderInIssue>
+        <defaultSelectionWeight>1</defaultSelectionWeight>
+    </PreceptDef>
+
+    <PreceptDef>
+        <defName>XenoDiversity_Approved</defName>
+        <issue>XenoDiversity</issue>
+        <label>appreciated</label>
+        <description>Other xenotypes are people just like anyone else. They deserve a place in the community.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>20</displayOrderInIssue>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Approved</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <PreceptDef>
+        <defName>XenoDiversity_Respected</defName>
+        <issue>XenoDiversity</issue>
+        <label>highly appreciated</label>
+        <description>Each xenotype presents unique strengths. A diverse community is stronger.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>10</displayOrderInIssue>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Respected</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <PreceptDef>
+        <defName>XenoDiversity_Exalted</defName>
+        <issue>XenoDiversity</issue>
+        <label>exalted</label>
+        <description>There is beauty and power in xenodiversity. It's our moral responsibility to coexist.</description>
+        <impact>Medium</impact>
+        <displayOrderInIssue>0</displayOrderInIssue>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Exalted</thought>
+            </li>
+        </comps>
+    </PreceptDef>
 
     <!-- Thoughts -->
+    
+    <!-- Abhorrent -->
+    
     <ThoughtDef>
         <defName>XenoDiversity_Abhorrent</defName>
         <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
@@ -74,6 +172,186 @@
             <li>
                 <label>filthy xeno</label>
                 <baseOpinionOffset>-25</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+    <!-- Horrible -->
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Horrible</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>I'm being forced to mingle with xenos. They make my skin crawl.</description>
+                <baseMoodEffect>-2</baseMoodEffect>
+            </li>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>There are far too many xenos in the community. They make my skin crawl.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>The community is overrun by xenos! They make my skin crawl.</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Horrible_Uniform</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity_Uniform</workerClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>xeno purity</label>
+                <description>Everyone in our community is of the same stock.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Horrible_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity_Social</workerClass>
+        <stages>
+            <li>
+                <label>different xenotype</label>
+                <baseOpinionOffset>-15</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Disapproved -->
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Disapproved</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>I'm being forced to mingle with xenos. They make me uncomfortable.</description>
+                <baseMoodEffect>-1</baseMoodEffect>
+            </li>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>There are far too many xenos in the community. They make me uncomfortable.</description>
+                <baseMoodEffect>-2</baseMoodEffect>
+            </li>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>The community is overrun by xenos! They make me uncomfortable.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Disapproved_Uniform</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity_Uniform</workerClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>xeno purity</label>
+                <description>It's nice being in a community where everyone is like me.</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Disapproved_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity_Social</workerClass>
+        <stages>
+            <li>
+                <label>different xenotype</label>
+                <baseOpinionOffset>-5</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Approved -->
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Approved</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>xenodiversity</label>
+                <description>I like that there are some xenos here. The community feels diverse and dynamic.</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+            <li>
+                <label>xenodiversity</label>
+                <description>I like that there are so many xenos here. The community feels diverse and dynamic.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+            <li>
+                <label>xenodiversity</label>
+                <description>Almost everyone here is a different xenotype from me! The community feels diverse and dynamic.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Respected -->
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Respected</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>xenodiversity</label>
+                <description>I like that there are some xenos here. The diverse perspectives and skillsets make the community stronger.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+            <li>
+                <label>xenodiversity</label>
+                <description>I like that there are so many xenos here. The diverse perspectives and skillsets make the community stronger.</description>
+                <baseMoodEffect>4</baseMoodEffect>
+            </li>
+            <li>
+                <label>xenodiversity</label>
+                <description>Almost everyone here is a different xenotype from me! The diverse perspectives and skillsets make the community stronger.</description>
+                <baseMoodEffect>6</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Exalted -->
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Exalted</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>xenodiversity</label>
+                <description>I like that there are some xenos here. I'm proud to be part of such a diverse community!</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+            <li>
+                <label>xenodiversity</label>
+                <description>I like that there are so many xenos here. I'm so proud to be part of such a diverse community!</description>
+                <baseMoodEffect>6</baseMoodEffect>
+            </li>
+            <li>
+                <label>xenodiversity</label>
+                <description>Almost everyone here is a different xenotype from me! I'm so proud to be part of such a diverse community!</description>
+                <baseMoodEffect>9</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
