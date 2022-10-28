@@ -6,7 +6,7 @@
         <label>xenodiversity</label>
         <iconPath>UI/Issues/PlaceholderIssue</iconPath>
     </IssueDef>
-    
+
     <!-- Precepts -->
     <PreceptDef>
         <defName>XenoDiversity_Abhorrent</defName>
@@ -18,9 +18,16 @@
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Abhorrent</thought>
             </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Abhorrent_Social</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Abhorrent_Uniform</thought>
+                <description>All colonists are of the same xenotype</description>
+            </li>
         </comps>
     </PreceptDef>
-    
+
     <!-- Thoughts -->
     <ThoughtDef>
         <defName>XenoDiversity_Abhorrent</defName>
@@ -42,6 +49,31 @@
                 <label>too much xenodiversity</label>
                 <description>The community is crawling with xenos! It's vile.</description>
                 <baseMoodEffect>-9</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Abhorrent_Uniform</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity_Uniform</workerClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>xeno purity</label>
+                <description>Everyone in our community is of the same pure stock.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>XenoDiversity_Abhorrent_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity_Social</workerClass>
+        <stages>
+            <li>
+                <label>filthy xeno</label>
+                <baseOpinionOffset>-25</baseOpinionOffset>
             </li>
         </stages>
     </ThoughtDef>

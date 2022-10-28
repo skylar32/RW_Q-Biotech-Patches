@@ -30,4 +30,30 @@ namespace Q_Biotech_Patches
                                                               (float)(def.stages.Count - 1)));
         }
     }
+
+    public class ThoughtWorker_Precept_XenoDiversity_Social : ThoughtWorker_Precept_Social
+    {
+        protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn) =>
+            (ThoughtState)(p.Faction == otherPawn.Faction && p.genes.XenotypeLabel != otherPawn.genes.XenotypeLabel);
+    }
+
+    public class ThoughtWorker_Precept_XenoDiversity_Uniform : ThoughtWorker_Precept
+    {
+        protected override ThoughtState ShouldHaveThought(Pawn p)
+        {
+            int num = 0;
+            foreach (var otherPawn in p.Map.mapPawns.SpawnedPawnsInFaction(p.Faction))
+            {
+                if (otherPawn != p && otherPawn.RaceProps.Humanlike && !otherPawn.IsSlave && !otherPawn.IsPrisoner &&
+                    !otherPawn.IsQuestLodger())
+                {
+                    if (otherPawn.genes.XenotypeLabel != p.genes.XenotypeLabel)
+                        return false;
+                    ++num;
+                }
+            }
+            
+            return (ThoughtState)(num > 0);
+        }
+    }
 }
