@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Issue -->
+    <IssueDef>
+        <defName>XenoDiversity</defName>
+        <label>xenodiversity</label>
+        <iconPath>UI/Issues/PlaceholderIssue</iconPath>
+    </IssueDef>
+    
+    <!-- Precepts -->
+    <PreceptDef>
+        <defName>XenoDiversity_Abhorrent</defName>
+        <issue>XenoDiversity</issue>
+        <label>intense bigotry</label>
+        <description>Our genetic stock is the purest. Those of other kinds are inferior and cannot live alongside us.</description>
+        <impact>Medium</impact>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>XenoDiversity_Abhorrent</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+    
+    <!-- Thoughts -->
+    <ThoughtDef>
+        <defName>XenoDiversity_Abhorrent</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_XenoDiversity</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>I'm being forced to mingle with xenos. It's vile.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>There are far too many xenos in the community. It's vile.</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
+            <li>
+                <label>too much xenodiversity</label>
+                <description>The community is crawling with xenos! It's vile.</description>
+                <baseMoodEffect>-9</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>
