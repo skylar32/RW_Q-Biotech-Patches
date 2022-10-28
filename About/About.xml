@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+    <name>Q's Biotech Patches</name>
+    <author>kyeugh (urhähnchen)</author>
+    <packageId>kyeugh.BiotechPatches</packageId>
+    <url/>
+    <supportedVersions>
+        <li>1.4</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>Ludeon.RimWorld.Biotech</packageId>
+            <displayName>Biotech</displayName>
+        </li>
+    </modDependencies>
+    <description>Some small patches to Biotech to improve DLC interplay and modify bothersome behavior.</description>
+</ModMetaData>
