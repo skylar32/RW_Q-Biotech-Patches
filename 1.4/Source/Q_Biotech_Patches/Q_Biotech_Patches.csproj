@@ -15,7 +15,7 @@
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>false</DebugSymbols>
-        <DebugType>full</DebugType>
+        <DebugType>none</DebugType>
         <Optimize>false</Optimize>
         <OutputPath>../../Assemblies</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -24,7 +24,7 @@
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>pdbonly</DebugType>
+        <DebugType>none</DebugType>
         <Optimize>true</Optimize>
         <OutputPath>../../Assemblies</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
@@ -32,6 +32,10 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>packages\Lib.Harmony.2.2.2\lib\net472\0Harmony.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
         <Reference Include="Assembly-CSharp">
           <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
           <Private>False</Private>
@@ -50,8 +54,13 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Harmony\HarmonyInstance.cs" />
+        <Compile Include="Harmony\RitualAttachableOutcomeEffectWorker_RandomRecruit_Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Thoughts\ThoughtWorker_Precept_XenoDiversity.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
