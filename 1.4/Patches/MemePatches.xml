@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/MemeDef[defName = "Supremacist"]/requireOne</xpath>
+        <value>
+            <li>
+                <li>XenoDiversity_Abhorrent</li>
+                <li>XenoDiversity_Horrible</li>
+            </li>
+        </value>
+    </Operation>
+</Patch>

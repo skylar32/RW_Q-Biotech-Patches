@@ -15,6 +15,15 @@
         <description>Our genetic stock is the purest. Those of other kinds are inferior and cannot live alongside us.</description>
         <impact>Medium</impact>
         <displayOrderInIssue>60</displayOrderInIssue>
+        <requiredMemes>
+            <li>Supremacist</li>
+        </requiredMemes>
+        <associatedMemes>
+            <li>Supremacist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Individualist</li>
+        </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Abhorrent</thought>
@@ -36,6 +45,12 @@
         <description>Other xenotypes are strange and should be shunned. They don't belong in the community.</description>
         <impact>Low</impact>
         <displayOrderInIssue>50</displayOrderInIssue>
+        <associatedMemes>
+            <li>Supremacist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Individualist</li>
+        </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Horrible</thought>
@@ -57,6 +72,12 @@
         <description>Other xenotypes are uncanny and troublesome. A homogeneous community is best.</description>
         <impact>Low</impact>
         <displayOrderInIssue>40</displayOrderInIssue>
+        <associatedMemes>
+            <li>Supremacist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Individualist</li>
+        </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Disapproved</thought>
@@ -74,7 +95,7 @@
     <PreceptDef>
         <defName>XenoDiversity_Standard</defName>
         <issue>XenoDiversity</issue>
-        <label>intense bigotry</label>
+        <label>neutral</label>
         <description>Xenodiversity doesn't particularly matter one way or the other.</description>
         <impact>Low</impact>
         <displayOrderInIssue>30</displayOrderInIssue>
@@ -88,6 +109,13 @@
         <description>Other xenotypes are people just like anyone else. They deserve a place in the community.</description>
         <impact>Low</impact>
         <displayOrderInIssue>20</displayOrderInIssue>
+        <associatedMemes>
+            <li>Individualist</li>
+            <li>HumanPrimacy</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Supremacist</li>
+        </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Approved</thought>
@@ -102,6 +130,17 @@
         <description>Each xenotype presents unique strengths. A diverse community is stronger.</description>
         <impact>Low</impact>
         <displayOrderInIssue>10</displayOrderInIssue>
+        <requiredMemes>
+            <li>Individualist</li>
+            <li>HumanPrimacy</li>
+        </requiredMemes>
+        <associatedMemes>
+            <li>Individualist</li>
+            <li>HumanPrimacy</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Supremacist</li>
+        </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Respected</thought>
@@ -116,6 +155,17 @@
         <description>There is beauty and power in xenodiversity. It's our moral responsibility to coexist.</description>
         <impact>Medium</impact>
         <displayOrderInIssue>0</displayOrderInIssue>
+        <requiredMemes>
+            <li>Individualist</li>
+            <li>HumanPrimacy</li>
+        </requiredMemes>
+        <associatedMemes>
+            <li>Individualist</li>
+            <li>HumanPrimacy</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Supremacist</li>
+        </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>XenoDiversity_Exalted</thought>
@@ -149,6 +199,9 @@
                 <baseMoodEffect>-9</baseMoodEffect>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <ThoughtDef>
@@ -162,6 +215,9 @@
                 <baseMoodEffect>3</baseMoodEffect>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <ThoughtDef>
@@ -174,6 +230,9 @@
                 <baseOpinionOffset>-25</baseOpinionOffset>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
     
     <!-- Horrible -->
@@ -200,6 +259,9 @@
                 <baseMoodEffect>-6</baseMoodEffect>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <ThoughtDef>
@@ -213,6 +275,9 @@
                 <baseMoodEffect>2</baseMoodEffect>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <ThoughtDef>
@@ -225,6 +290,9 @@
                 <baseOpinionOffset>-15</baseOpinionOffset>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <!-- Disapproved -->
@@ -251,6 +319,9 @@
                 <baseMoodEffect>-3</baseMoodEffect>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <ThoughtDef>
@@ -264,6 +335,9 @@
                 <baseMoodEffect>1</baseMoodEffect>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <ThoughtDef>
@@ -276,6 +350,9 @@
                 <baseOpinionOffset>-5</baseOpinionOffset>
             </li>
         </stages>
+        <nullifyingTraits>
+            <li>Kind</li>
+        </nullifyingTraits>
     </ThoughtDef>
 
     <!-- Approved -->
