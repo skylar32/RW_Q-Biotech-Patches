@@ -111,4 +111,24 @@ namespace Q_Biotech_Patches
             }
         }
     }
+    
+    [HarmonyPatch(typeof(Bill_Medical))]
+    [HarmonyPatch("PawnAllowedToStartAnew")]
+    public static class Bill_Medical_PawnAllowedToStartAnew_Patch
+    {
+        [HarmonyPostfix]
+        public static void PawnAllowedToStartAnew(ref bool __result, Bill_Medical __instance, Pawn pawn)
+        {
+            if (__result)
+            {
+                if (__instance.recipe.defName == "TerminatePregnancy" ||
+                    (!__instance.recipe.researchPrerequisites.NullOrEmpty() && __instance.recipe.researchPrerequisites.Contains(
+                        DefDatabase<ResearchProjectDef>.GetNamed("FertilityProcedures"))))
+                {
+                    __result = new HistoryEvent(DefDatabase<HistoryEventDef>.GetNamed("PerformFertilityProcedure"),
+                        pawn.Named(HistoryEventArgsNames.Doer)).Notify_PawnAboutToDo_Job();
+                }
+            }
+        }   
+    }
 }
