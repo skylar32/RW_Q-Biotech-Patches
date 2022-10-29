@@ -55,9 +55,6 @@
         <description>Life is hard on the rim. Childhood spent in a growth vat is a mercy.</description>
         <impact>Low</impact>
         <displayOrderInIssue>0</displayOrderInIssue>
-        <requiredMemes>
-            <li>Transhumanist</li>
-        </requiredMemes>
         <associatedMemes>
             <li>Transhumanist</li>
         </associatedMemes>
