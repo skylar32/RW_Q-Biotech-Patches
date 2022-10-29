@@ -14,7 +14,7 @@
     <IssueDef>
         <defName>BirthControl</defName>
         <label>birth control</label>
-        <iconPath>UI/Issues/PlaceholderIssue</iconPath>
+        <iconPath>UI/Issues/BirthControl</iconPath>
     </IssueDef>
 
     <!-- Precepts -->

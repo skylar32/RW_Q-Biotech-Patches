@@ -4,7 +4,7 @@
     <IssueDef>
         <defName>GrowthVats</defName>
         <label>growth vats</label>
-        <iconPath>UI/Issues/PlaceholderIssue</iconPath>
+        <iconPath>UI/Issues/GrowthVats</iconPath>
     </IssueDef>
 
     <!-- Precepts -->

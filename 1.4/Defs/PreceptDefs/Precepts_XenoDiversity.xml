@@ -4,7 +4,7 @@
     <IssueDef>
         <defName>XenoDiversity</defName>
         <label>xenodiversity</label>
-        <iconPath>UI/Issues/PlaceholderIssue</iconPath>
+        <iconPath>UI/Issues/XenoDiversity</iconPath>
     </IssueDef>
 
     <!-- Precepts -->
