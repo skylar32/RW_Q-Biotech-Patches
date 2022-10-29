@@ -9,4 +9,26 @@
             </li>
         </value>
     </Operation>
+    
+    <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ThoughtDef[defName = "ChildInGrowthVat"]</xpath>
+    </Operation>
+    
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/MemeDef[defName = "Transhumanist"]/requireOne</xpath>
+        <value>
+            <li>
+                <li>GrowthVats_Desired</li>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/MemeDef[defName = "FleshPurity"]/requireOne</xpath>
+        <value>
+            <li>
+                <li>GrowthVats_Horrible</li>
+            </li>
+        </value>
+    </Operation>
 </Patch>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Issue -->
+    <IssueDef>
+        <defName>GrowthVats</defName>
+        <label>growth vats</label>
+        <iconPath>UI/Issues/PlaceholderIssue</iconPath>
+    </IssueDef>
+
+    <!-- Precepts -->
+    <PreceptDef>
+        <defName>GrowthVats_Horrible</defName>
+        <issue>GrowthVats</issue>
+        <label>horrible</label>
+        <description>Growth vats rob children of their precious innocence. They should never be used.</description>
+        <impact>Medium</impact>
+        <displayOrderInIssue>20</displayOrderInIssue>
+        <associatedMemes>
+            <li>FleshPurity</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Transhumanist</li>
+        </conflictingMemes>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>ChildInGrowthVat_Horrible</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>HasGrowthVats_Horrible</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+
+
+    <PreceptDef>
+        <defName>GrowthVats_Standard</defName>
+        <issue>GrowthVats</issue>
+        <label>disapproved</label>
+        <description>It makes me sad, but growth vats are a necessary evil.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>10</displayOrderInIssue>
+        <defaultSelectionWeight>1</defaultSelectionWeight>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>ChildInGrowthVat_Standard</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+    
+    <PreceptDef>
+        <defName>GrowthVats_Desired</defName>
+        <issue>GrowthVats</issue>
+        <label>desired</label>
+        <description>Life is hard on the rim. Childhood spent in a growth vat is a mercy.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>0</displayOrderInIssue>
+        <requiredMemes>
+            <li>Transhumanist</li>
+        </requiredMemes>
+        <associatedMemes>
+            <li>Transhumanist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>FleshPurity</li>
+        </conflictingMemes>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>ChildInGrowthVat_Desired</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>ChildNotInGrowthVat_Desired</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>HasNoGrowthVats_Desired</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+    
+    <!-- Thoughts -->
+    
+    <!-- Horrible -->
+    
+    <ThoughtDef>
+        <defName>ChildInGrowthVat_Horrible</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_ChildInGrowthVat</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>my child is in a growth vat</label>
+                <description>Every moment my child spends in a growth vat is a moment I've stolen from them. I'm a horrible parent.</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
+            <li>
+                <label>children in growth vats (x2)</label>
+                <description>Every moment my children spend in a growth vat is a moment I've stolen from them. I'm a horrible parent.</description>
+                <baseMoodEffect>-12</baseMoodEffect>
+            </li>
+            <li>
+                <label>many children in growth vats</label>
+                <description>Every moment my children spend in a growth vat is a moment I've stolen from them. I'm a horrible parent.</description>
+                <baseMoodEffect>-18</baseMoodEffect>
+            </li>
+        </stages>
+        <nullifyingTraits>
+            <li>Psychopath</li>
+        </nullifyingTraits>
+    </ThoughtDef>
+    
+    <ThoughtDef>
+        <defName>HasGrowthVats_Horrible</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_HasGrowthVats</workerClass>
+        <stages>
+            <li>
+                <label>growth vats</label>
+                <description>There are growth vats in the colony. It makes me feel ill just to know they're there.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+    <!-- Standard -->
+
+    <ThoughtDef>
+        <defName>ChildInGrowthVat_Standard</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_ChildInGrowthVat</workerClass>
+        <nullifyingTraits>
+            <li>Psychopath</li>
+        </nullifyingTraits>
+        <stages>
+            <li>
+                <label>my child is in a growth vat</label>
+                <description>I miss my child. It's hard knowing they're floating in that machine, bypassing their childhood.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+            <li>
+                <label>children in growth vats (x2)</label>
+                <description>I miss my children. It's hard knowing they're floating in that machine, bypassing their childhoods.</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+            <li>
+                <label>many children in growth vats</label>
+                <description>I miss my children. It's hard knowing they're floating in that machine, bypassing their childhoods.</description>
+                <baseMoodEffect>-12</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+    <!-- Desired -->
+
+    <ThoughtDef>
+        <defName>ChildInGrowthVat_Desired</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_AllChildrenInGrowthVat</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>my child is in a growth vat</label>
+                <description>It pleases me that my child is spending their childhood safe in a growth vat, sheltered from the horrors of the rim.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+            <li>
+                <label>my children are in growth vats</label>
+                <description>It pleases me that my children are spending their childhoods safe in a growth vat, sheltered from the horrors of the rim.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>ChildNotInGrowthVat_Desired</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_ChildNotInGrowthVat</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>my child is not in a growth vat</label>
+                <description>What is my kid doing outside their vat? They're going to get hurt!</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+            <li>
+                <label>children outside growth vat (x2)</label>
+                <description>What are my kids doing outside their vats? They're going to get hurt!</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
+            <li>
+                <label>many children outside growth vat</label>
+                <description>What are my kids doing outside their vats? They're going to get hurt!</description>
+                <baseMoodEffect>-9</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>HasNoGrowthVats_Desired</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_HasNoGrowthVats</workerClass>
+        <minExpectationForNegativeThought>Moderate</minExpectationForNegativeThought>
+        <stages>
+            <li>
+                <label>no growth vats</label>
+                <description>There are no growth vats in the colony. Our unpreparedness makes me feel anxious.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>
