@@ -15,7 +15,7 @@ namespace Q_Biotech_Patches
             ref PregnancyAttitude? ___pregnancyAttitude
             )
         {
-            if (__instance.Pawn.ideo.Ideo.HasPrecept(DefDatabase<PreceptDef>.GetNamed("BirthControl_Abhorrent")))
+            if (__instance.Pawn.ideo.Ideo.HasPrecept(DefDatabase<PreceptDef>.GetNamed("BirthControl_Prohibited")))
             {
                 ___pregnancyAttitude = new PregnancyAttitude?(PregnancyAttitude.Positive);
                 return true;
@@ -37,7 +37,7 @@ namespace Q_Biotech_Patches
         [HarmonyPostfix]
         public static void CurrentStateInternal(ref ThoughtState __result, Pawn p)
         {
-            if (__result.Active && p.ideo.Ideo.HasPrecept(DefDatabase<PreceptDef>.GetNamed("BirthControl_Abhorrent")))
+            if (__result.Active && p.ideo.Ideo.HasPrecept(DefDatabase<PreceptDef>.GetNamed("BirthControl_Prohibited")))
             {
                 __result = ThoughtState.ActiveAtStage(2);
             }
@@ -63,11 +63,11 @@ namespace Q_Biotech_Patches
             if (__result)
             {
                 if (pawn.needs?.mood?.thoughts?.memories != null &&
-                    pawn.ideo.Ideo.HasPrecept(DefDatabase<PreceptDef>.GetNamed("BirthControl_Abhorrent")))
+                    pawn.ideo.Ideo.HasPrecept(DefDatabase<PreceptDef>.GetNamed("BirthControl_Prohibited")))
                 {
                     pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDef(ThoughtDefOf.PregnancyTerminated); // don't stack these
                     
-                    Thought_Memory newThought = ThoughtMaker.MakeThought(DefDatabase<ThoughtDef>.GetNamed("PregnancyTerminated_Abhorrent"), __state);
+                    Thought_Memory newThought = ThoughtMaker.MakeThought(DefDatabase<ThoughtDef>.GetNamed("PregnancyTerminated_Prohibited"), __state);
                     pawn.needs.mood.thoughts.memories.TryGainMemory(newThought);
                 }
             }

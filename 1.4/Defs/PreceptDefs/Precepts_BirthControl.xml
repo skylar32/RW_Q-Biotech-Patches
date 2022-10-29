@@ -19,9 +19,9 @@
 
     <!-- Precepts -->
     <PreceptDef>
-        <defName>BirthControl_Abhorrent</defName>
+        <defName>BirthControl_Prohibited</defName>
         <issue>BirthControl</issue>
-        <label>abhorrent</label>
+        <label>prohibited</label>
         <description>Pregnancy happens when it happens. It's wrong to try to control it.</description>
         <impact>Medium</impact>
         <displayOrderInIssue>10</displayOrderInIssue>
@@ -36,11 +36,11 @@
         </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
-                <thought>BirthControl_Abhorrent</thought>
+                <thought>BirthControl_Prohibited</thought>
             </li>
             <li Class="PreceptComp_KnowsMemoryThought">
                 <eventDef>PregnancyTerminated</eventDef>
-                <thought>PregnancyTerminated_Know_Abhorrent_Opinion</thought>
+                <thought>PregnancyTerminated_Know_Prohibited_Opinion</thought>
             </li>
             <li Class="PreceptComp_UnwillingToDo">
                 <eventDef>PerformFertilityProcedure</eventDef>
@@ -76,10 +76,10 @@
 
     <!-- Thoughts -->
 
-    <!-- Abhorrent -->
+    <!-- Prohibited -->
 
     <ThoughtDef>
-        <defName>BirthControl_Abhorrent</defName>
+        <defName>BirthControl_Prohibited</defName>
         <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_BirthControl</workerClass>
         <thoughtClass>Thought_Situational</thoughtClass>
         <stages>
@@ -92,7 +92,7 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>PregnancyTerminated_Abhorrent</defName>
+        <defName>PregnancyTerminated_Prohibited</defName>
         <thoughtClass>Thought_Memory</thoughtClass>
         <durationDays>10</durationDays>
         <stackLimit>3</stackLimit>
@@ -116,7 +116,7 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>PregnancyTerminated_Know_Abhorrent_Opinion</defName>
+        <defName>PregnancyTerminated_Know_Prohibited_Opinion</defName>
         <thoughtClass>Thought_MemorySocial</thoughtClass>
         <durationDays>5</durationDays>
         <stackLimit>100</stackLimit>
