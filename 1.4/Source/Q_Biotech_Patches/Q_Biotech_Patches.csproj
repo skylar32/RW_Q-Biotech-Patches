@@ -55,6 +55,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Harmony\HarmonyInstance.cs" />
+        <Compile Include="Harmony\HediffUtility_CountAddedAndImplantedParts_Patch.cs" />
         <Compile Include="Harmony\MeditationFocusTypeAvailabilityCache_PawnCanUse_Patch.cs" />
         <Compile Include="Harmony\RitualAttachableOutcomeEffectWorker_RandomRecruit_Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
