@@ -40,6 +40,7 @@
         <impact>Low</impact>
         <displayOrderInIssue>10</displayOrderInIssue>
         <defaultSelectionWeight>1</defaultSelectionWeight>
+        <classic>true</classic>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>ChildInGrowthVat_Standard</thought>
@@ -48,9 +49,9 @@
     </PreceptDef>
     
     <PreceptDef>
-        <defName>GrowthVats_Desired</defName>
+        <defName>GrowthVats_Preferred</defName>
         <issue>GrowthVats</issue>
-        <label>desired</label>
+        <label>preferred</label>
         <description>Life is hard on the rim. Childhood spent in a growth vat is a mercy.</description>
         <impact>Low</impact>
         <displayOrderInIssue>0</displayOrderInIssue>
@@ -65,13 +66,13 @@
         </conflictingMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
-                <thought>ChildInGrowthVat_Desired</thought>
+                <thought>ChildInGrowthVat_Preferred</thought>
             </li>
             <li Class="PreceptComp_SituationalThought">
-                <thought>ChildNotInGrowthVat_Desired</thought>
+                <thought>ChildNotInGrowthVat_Preferred</thought>
             </li>
             <li Class="PreceptComp_SituationalThought">
-                <thought>HasNoGrowthVats_Desired</thought>
+                <thought>HasNoGrowthVats_Preferred</thought>
             </li>
         </comps>
     </PreceptDef>
@@ -145,10 +146,10 @@
         </stages>
     </ThoughtDef>
     
-    <!-- Desired -->
+    <!-- Preferred -->
 
     <ThoughtDef>
-        <defName>ChildInGrowthVat_Desired</defName>
+        <defName>ChildInGrowthVat_Preferred</defName>
         <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_AllChildrenInGrowthVat</workerClass>
         <thoughtClass>Thought_Situational</thoughtClass>
         <stages>
@@ -166,7 +167,7 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>ChildNotInGrowthVat_Desired</defName>
+        <defName>ChildNotInGrowthVat_Preferred</defName>
         <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_ChildNotInGrowthVat</workerClass>
         <thoughtClass>Thought_Situational</thoughtClass>
         <stages>
@@ -189,7 +190,7 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>HasNoGrowthVats_Desired</defName>
+        <defName>HasNoGrowthVats_Preferred</defName>
         <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_HasNoGrowthVats</workerClass>
         <minExpectationForNegativeThought>Moderate</minExpectationForNegativeThought>
         <stages>

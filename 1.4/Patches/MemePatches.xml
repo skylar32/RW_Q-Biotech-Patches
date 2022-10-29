@@ -18,7 +18,7 @@
         <xpath>Defs/MemeDef[defName = "Transhumanist"]/requireOne</xpath>
         <value>
             <li>
-                <li>GrowthVats_Desired</li>
+                <li>GrowthVats_Preferred</li>
             </li>
         </value>
     </Operation>
