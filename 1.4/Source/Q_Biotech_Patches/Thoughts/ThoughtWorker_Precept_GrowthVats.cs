@@ -12,7 +12,6 @@ namespace Q_Biotech_Patches
             if (p.relations.ChildrenCount <= 0) return false;
 
             int numChildrenInVats = this.ChildrenInGrowthVatCount(p);
-            Log.Message($"children in growth vats: {numChildrenInVats}");
             return numChildrenInVats > 0
                 ? ThoughtState.ActiveAtStage(Mathf.Min(2, numChildrenInVats - 1))
                 : ThoughtState.Inactive;
@@ -74,7 +73,6 @@ namespace Q_Biotech_Patches
                     where child.Faction == p.Faction
                     where !child.Dead
                     select child).Count() - this.ChildrenInGrowthVatCount(p);
-            Log.Message($"children outside growth vats: {numChildrenOutsideVats}");
             return numChildrenOutsideVats > 0
                 ? ThoughtState.ActiveAtStage(Mathf.Min(2, numChildrenOutsideVats - 1))
                 : ThoughtState.Inactive;
