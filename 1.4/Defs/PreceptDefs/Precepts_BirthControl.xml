@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HistoryEventDef>
+        <defName>PregnancyTerminated</defName>
+        <label>terminated pregnancy</label>
+    </HistoryEventDef>
+    
+    <!-- Issue -->
+    <IssueDef>
+        <defName>BirthControl</defName>
+        <label>birth control</label>
+        <iconPath>UI/Issues/PlaceholderIssue</iconPath>
+    </IssueDef>
+
+    <!-- Precepts -->
+    <PreceptDef>
+        <defName>BirthControl_Abhorrent</defName>
+        <issue>BirthControl</issue>
+        <label>abhorrent</label>
+        <description>Pregnancy happens when it happens. It's wrong to try to control it.</description>
+        <impact>Medium</impact>
+        <displayOrderInIssue>10</displayOrderInIssue>
+        <defaultSelectionWeight>0</defaultSelectionWeight>
+        <associatedMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>Individualist</li>
+            <li>Guilty</li>
+        </conflictingMemes>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>BirthControl_Abhorrent</thought>
+            </li>
+            <li Class="PreceptComp_KnowsMemoryThought">
+                <eventDef>PregnancyTerminated</eventDef>
+                <thought>PregnancyTerminated_Know_Abhorrent_Opinion</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <PreceptDef>
+        <defName>BirthControl_Preferred</defName>
+        <issue>BirthControl</issue>
+        <label>preferred</label>
+        <description>Children have no place on the rim. It's best to banish the possibility of creating one.</description>
+        <impact>Low</impact>
+        <displayOrderInIssue>0</displayOrderInIssue>
+        <defaultSelectionWeight>0</defaultSelectionWeight>
+        <associatedMemes>
+            <li>Guilty</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+        </conflictingMemes>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>BirthControl_Preferred</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <!-- Thoughts -->
+
+    <!-- Abhorrent -->
+
+    <ThoughtDef>
+        <defName>BirthControl_Abhorrent</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_BirthControl</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>fertility procedure</label>
+                <description>I hate that I've been unnaturally rendered infertile. I feel violated.</description>
+                <baseMoodEffect>-12</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PregnancyTerminated_Abhorrent</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>10</durationDays>
+        <stackLimit>3</stackLimit>
+        <stages>
+            <li>
+                <label>pregnancy terminated</label>
+                <description>My pregnancy was terminated.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+            <li>
+                <label>pregnancy terminated</label>
+                <description>My pregnancy was terminated.</description>
+                <baseMoodEffect>-20</baseMoodEffect>
+            </li>
+            <li>
+                <label>pregnancy terminated</label>
+                <description>My pregnancy was terminated.</description>
+                <baseMoodEffect>-30</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PregnancyTerminated_Know_Abhorrent_Opinion</defName>
+        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <durationDays>5</durationDays>
+        <stackLimit>100</stackLimit>
+        <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+        <nullifyingTraits>
+            <li>Psychopath</li>
+        </nullifyingTraits>
+        <stages>
+            <li>
+                <label>terminated pregnancy</label>
+                <baseOpinionOffset>-20</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+    <!-- Preferred -->
+
+    <ThoughtDef>
+        <defName>BirthControl_Preferred</defName>
+        <workerClass>Q_Biotech_Patches.ThoughtWorker_Precept_BirthControl</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <stages>
+            <li>
+                <label>fertility procedure</label>
+                <description>My fertility procedure gives me peace of mind.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+            <li>
+                <label>no fertility procedure</label>
+                <description>The possibility of becoming a parent is making me anxious. I'd really prefer to be sterilized.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    
+</Defs>
