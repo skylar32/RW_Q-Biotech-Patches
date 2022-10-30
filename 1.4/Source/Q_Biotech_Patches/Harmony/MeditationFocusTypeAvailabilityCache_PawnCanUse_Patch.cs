@@ -14,8 +14,10 @@ namespace Q_Biotech_Patches
         public static void PawnCanUse(ref bool __result, Pawn p, MeditationFocusDef type)
         {
             var requiresTribal = (from backstory in type.requiredBackstoriesAny
-                where backstory.categoryName == "Tribal" select backstory).Any();
-            if (requiresTribal && !__result && p.story.Childhood == DefDatabase<BackstoryDef>.GetNamed("TribeChild19"))
+                where backstory.categoryName == "Tribal"
+                select backstory).Any();
+            if (requiresTribal && !__result && p.RaceProps.Humanlike &&
+                p.story.Childhood == DefDatabase<BackstoryDef>.GetNamed("TribeChild19"))
                 __result = true;
         }
     }
@@ -27,7 +29,7 @@ namespace Q_Biotech_Patches
         [HarmonyPostfix]
         public static void BirthdayBiological(Pawn_AgeTracker __instance, Pawn ___pawn, int birthdayAge)
         {
-            if ( (double) birthdayAge == (double) __instance.AdultMinAge)
+            if ((double)birthdayAge == (double)__instance.AdultMinAge)
                 MeditationFocusTypeAvailabilityCache.ClearFor(___pawn);
         }
     }
