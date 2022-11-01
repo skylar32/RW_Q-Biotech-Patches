@@ -2,8 +2,7 @@
 
 ![Q's Biotech Patches](About/Preview.png)
 
-* [Workshop link](https://steamcommunity.com/sharedfiles/filedetails/?id=2881755109)
-* [Open in Steam](steam://url/CommunityFilePage/2881755109)
+[Workshop link](https://steamcommunity.com/sharedfiles/filedetails/?id=2881755109)
 
 The aim of this mod is to fill some of the gaps left in the Biotech expansion.
 
