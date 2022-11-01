@@ -1,5 +1,7 @@
+using System;
 using HarmonyLib;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using RimWorld.QuestGen;
 using RimWorld;
@@ -22,17 +24,39 @@ namespace Q_Biotech_Patches
         {
             if (Rand.Chance(0.5f))
             {
-                var xenotypeOptions = (from pawn in totalPresence.Keys.ToList() select pawn.genes.Xenotype);
-                XenotypeDef chosenXenotype = xenotypeOptions.RandomElement();
-                
-                Slate vars = new Slate();
+                var vars = new Slate();
                 vars.Set<Map>("map", jobRitual.Map);
-                vars.Set<PawnGenerationRequest>("overridePawnGenParams", new PawnGenerationRequest(PawnKindDefOf.Villager, forceGenerateNewPawn: true, colonistRelationChanceFactor: 20f, fixedIdeo: jobRitual.Ritual.ideo, forcedXenotype: chosenXenotype));
+
+                var randPawn = (from pawn in totalPresence.Keys.ToList() select pawn).RandomElement();
+                if (randPawn.genes.UniqueXenotype)
+                { // xenotype is custom
+                    var filePath = GenFilePaths.AbsFilePathForXenotype(randPawn.genes.xenotypeName);
+                    CustomXenotype chosenXenotype = null;
+                    if (GameDataSaveLoader.TryLoadXenotype(filePath, out chosenXenotype)) // try to load xenotype def
+                        vars.Set<PawnGenerationRequest>("overridePawnGenParams",
+                            new PawnGenerationRequest(PawnKindDefOf.Villager, forceGenerateNewPawn: true,
+                                colonistRelationChanceFactor: 20f, fixedIdeo: jobRitual.Ritual.ideo,
+                                forcedCustomXenotype: chosenXenotype));
+                    else // loading xenotype def failed; fall back to baseliner
+                        vars.Set<PawnGenerationRequest>("overridePawnGenParams",
+                            new PawnGenerationRequest(PawnKindDefOf.Villager, forceGenerateNewPawn: true,
+                                colonistRelationChanceFactor: 20f, fixedIdeo: jobRitual.Ritual.ideo));
+                }
+                else
+                { // xenotype is non-baseliner but pre-defined
+                    vars.Set<PawnGenerationRequest>("overridePawnGenParams",
+                        new PawnGenerationRequest(PawnKindDefOf.Villager, forceGenerateNewPawn: true,
+                            colonistRelationChanceFactor: 20f, fixedIdeo: jobRitual.Ritual.ideo,
+                            forcedXenotype: randPawn.genes.Xenotype));
+                }
+
                 QuestUtility.GenerateQuestAndMakeAvailable(QuestScriptDefOf.WandererJoins, vars);
                 extraOutcomeDesc = __instance.def.letterInfoText;
             }
             else
-                extraOutcomeDesc = (string) null;
+            {
+                extraOutcomeDesc = (string)null;
+            }
 
             return false;
         }
